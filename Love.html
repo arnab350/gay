@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Important Question 💕</title>
+
+<style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family: Arial, sans-serif;
+}
+
+body{
+    height:100vh;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    background: linear-gradient(135deg,#ff9a9e,#fad0c4);
+    overflow:hidden;
+}
+
+.container{
+    background:white;
+    width:90%;
+    max-width:400px;
+    padding:30px 20px;
+    border-radius:20px;
+    text-align:center;
+    box-shadow:0 10px 25px rgba(0,0,0,0.2);
+    position:relative;
+}
+
+h1{
+    font-size:22px;
+    margin-bottom:25px;
+}
+
+button{
+    width:100%;
+    padding:15px;
+    font-size:18px;
+    border:none;
+    border-radius:12px;
+    margin:10px 0;
+    cursor:pointer;
+    transition:0.2s;
+}
+
+#yes{
+    background:#4CAF50;
+    color:white;
+}
+
+#yes:active{
+    transform:scale(0.95);
+}
+
+#no{
+    background:#f44336;
+    color:white;
+    position:absolute;
+    left:50%;
+    transform:translateX(-50%);
+}
+</style>
+</head>
+
+<body>
+
+<div class="container">
+    <h1>Will you go out with me Rumuuuu pookie? 😌💕</h1>
+    <button id="yes" onclick="accepted()">Yes 💖</button>
+    <button id="no">No 😜</button>
+</div>
+
+<script>
+const noBtn = document.getElementById("no");
+
+function accepted(){
+    document.querySelector(".container").innerHTML =
+    "<h1>Yayyyy 😍💘</h1><p>I know my pookie Rumaisha loves me❤️</p>";
+}
+
+// Move button randomly on tap (mobile friendly)
+noBtn.addEventListener("touchstart", moveButton);
+noBtn.addEventListener("click", moveButton);
+
+function moveButton(){
+    const container = document.querySelector(".container");
+    const maxX = container.clientWidth - noBtn.offsetWidth;
+    const maxY = container.clientHeight - noBtn.offsetHeight;
+
+    const randomX = Math.random() * maxX;
+    const randomY = Math.random() * maxY;
+
+    noBtn.style.left = randomX + "px";
+    noBtn.style.top = randomY + "px";
+}
+</script>
+
+</body>
+</html>
